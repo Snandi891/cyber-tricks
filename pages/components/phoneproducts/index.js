@@ -38,7 +38,6 @@ const Index = () => {
   const getFilteredAndSortedBanners = () => {
     let filtered = [...originalBanners];
 
-    // Price filter
     if (priceFilter) {
       filtered = filtered.filter((item) => {
         const price = parseFloat(item.price || 0);
@@ -55,7 +54,6 @@ const Index = () => {
       });
     }
 
-    // Price sort
     if (sortOrder === "asc") {
       filtered.sort(
         (a, b) => parseFloat(a.price || 0) - parseFloat(b.price || 0)
@@ -66,7 +64,6 @@ const Index = () => {
       );
     }
 
-    // Date sort
     if (dateOrder === "old") {
       filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     } else if (dateOrder === "new") {
@@ -95,12 +92,9 @@ const Index = () => {
 
   return (
     <main className="bg-black min-h-screen text-white font-sans overflow-hidden relative">
-      {/* Background Blur Glow */}
-
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-800 via-violet-600 to-rose-900 opacity-30 blur-3xl animate-pulse" />
 
       <div>
-        {/* Header */}
         <header className="absolute top-0 left-0 w-full z-10 text-white">
           <nav className="flex items-center justify-between px-8 py-6">
             <div className="flex items-center space-x-4">
@@ -141,7 +135,6 @@ const Index = () => {
           </nav>
         </header>
 
-        {/* Hero */}
         <section className="relative h-[30vh] pb-3.5 flex items-center justify-center text-center text-white overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
@@ -149,20 +142,18 @@ const Index = () => {
             className="absolute inset-0 w-full h-full rounded-b-full object-cover opacity-80 z-0"
           />
           <div className="z-10 bottom-4">
-            <h1 className="text-5xl font-bold mb-4">MEN'S SHOES</h1>
+            <h1 className="text-5xl font-bold mb-4">MEN&apos;S SHOES</h1>
             <button className="bg-white text-black px-6 py-2 rounded-full shadow-md">
               Shop Now
             </button>
           </div>
         </section>
 
-        {/* Main Content */}
-        <main className="relative px-6 md:px-20 py-10   overflow-hidden">
+        <main className="relative px-6 md:px-20 py-10 overflow-hidden">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Sidebar */}
             <aside className="w-full lg:w-1/4 space-y-8">
               <div>
-                <h2 className="text-xl font-semibold mb-2">Men's</h2>
+                <h2 className="text-xl font-semibold mb-2">Men&apos;s</h2>
                 <ul className="space-y-1 text-sm text-gray-700">
                   {Object.entries(counts).map(([category, count]) => (
                     <li key={category}>
@@ -225,11 +216,10 @@ const Index = () => {
               </div>
             </aside>
 
-            {/* Product Grid */}
             <section className="w-full lg:w-3/4">
               <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
                 <h2 className="text-xl font-semibold">
-                  MEN'S SHOES & SNEAKERS{" "}
+                  MEN&apos;S SHOES & SNEAKERS{" "}
                   <span className="text-gray-500">
                     ({displayedBanners.length} items)
                   </span>
@@ -268,7 +258,6 @@ const Index = () => {
                   >
                     New to Old
                   </button>
-
                   <button
                     onClick={shuffleProducts}
                     className="hover:text-green-700"
@@ -295,10 +284,7 @@ const Index = () => {
                         key={index}
                         className="relative bg-white/10 backdrop-blur-md rounded-xl p-4 w-[22%] min-w-[140px] max-w-[25%] flex-grow transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.3)] ring-1 ring-cyan-400/50"
                       >
-                        {/* Animated Ring Effect */}
                         <span className="absolute inset-0 rounded-xl ring-2 ring-cyan-400 animate-pulse pointer-events-none z-0" />
-
-                        {/* Card Content */}
                         <div className="relative z-10">
                           <div className="w-full aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden">
                             <img
@@ -310,7 +296,9 @@ const Index = () => {
                           <h3 className="font-semibold text-white mt-2">
                             {item.title}
                           </h3>
-                          <p className="text-sm text-gray-300">Men's Shoe</p>
+                          <p className="text-sm text-gray-300">
+                            Men&apos;s Shoe
+                          </p>
                           <p className="font-bold mt-1 text-white">
                             ₹{item.price || 180}
                           </p>
@@ -330,7 +318,6 @@ const Index = () => {
               )}
             </section>
           </div>
-          {/* <div className="absolute inset-0 bg-amber-600/50 backdrop-blur-md pointer-events-none"></div> */}
         </main>
       </div>
     </main>
