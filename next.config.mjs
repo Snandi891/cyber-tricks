@@ -10,11 +10,11 @@ const nextConfig = {
       },
       {
         source: "/api/products",
-        destination: "http://192.168.86.17:3000/api/products",
+        destination: "https://institute-admin-2d99.vercel.app/api/products",
       },
       {
         source: "/api/students",
-        destination: "http://192.168.86.17:3000/api/students",
+        destination: "https://institute-admin-2d99.vercel.app/api/students",
       },
       {
         source: "/api/shirt",
